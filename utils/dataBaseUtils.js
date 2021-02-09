@@ -1,11 +1,14 @@
 import mongoose from 'mongoose'
 
-import '../models/note'
+import '../models/note.js'
 
 const Note = mongoose.model('Note')
 
 export let setUpConnection = () => {
-    mongoose.connect('mongodb://localhost/notes')
+    mongoose.connect('mongodb://localhost/notes', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
 }
 
 export let listNotes = () => {

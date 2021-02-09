@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-modules app.js"
+    "start": "nodemon --experimental-modules app.js"
   },
   "keywords": [
     "js",
@@ -20,10 +20,12 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.11.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.13"
+    "@babel/core": "^7.12.13",
+    "nodemon": "^2.0.7"
   }
 }

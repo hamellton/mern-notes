@@ -9,4 +9,4 @@ const noteSchema = new Schema({
     createdAt: {type: Date},
 })
 
-const Note = mongoose.model('mongos', noteSchema)
+const Note = mongoose.model('Note', noteSchema)

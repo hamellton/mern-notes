@@ -2,29 +2,35 @@ import mongoose from 'mongoose'
 
 import '../models/note.js'
 
-const Note = mongoose.model('Note')
+const User = mongoose.model('mongos')
 
 export let setUpConnection = () => {
-    mongoose.connect('mongodb://localhost/notes', {
+    mongoose.connect('mongodb://localhost/mongodb', {
         useNewUrlParser: true,
         useUnifiedTopology: true
+    }, (err) => {
+        if (err) {
+            throw err
+        } else {
+            console.log(`Connect with  mongoDB`)
+        }
     })
 }
 
-export let listNotes = () => {
-    return Note.find()
+export let listUsers = () => {
+    return User.find({})
 }
 
-export let createNote = (data) => {
-    const newNote = new Note({
+export let createUser = (data) => {
+    const newUser = new User({
         title: data.title,
         text: data.text,
         color: data.color,
         createdAt: new Date()
     })
-    return newNote.save()
+    return newUser.save()
 }
 
-export let deleteNote = (id) => {
-    return Note.findById(id).remove()
+export let deleteUser = (id) => {
+    return User.findById(id).remove()
 }
